@@ -1,0 +1,40 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gif search</title>
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1>Busque su GIF</h1>
+<form>
+  <input type="text" name="termino" id="termino">
+  <button type="button" id="search">Buscar</button>
+</form>
+
+<div id="result"></div>
+<script>
+$("#search").click(function(){
+  var term = $("#termino").val();
+  console.log(term);
+  var url = "http://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=dc6zaTOxFJmzC";
+  $.get(url, function(data){
+  console.log(data);
+  var results = data.data;
+
+  results.forEach(function(item){
+    var img = item.images.downsized_medium.url;
+    $("#result").append('<img src="' + img + '" />');
+    console.log(img);
+  });
+  });
+});
+
+
+</script>
+</body>
+</html>

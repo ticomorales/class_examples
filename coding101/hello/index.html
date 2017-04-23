@@ -1,0 +1,41 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <title>Index</title>
+  </head>
+  <body>
+    <h1>Importador de productos</h1>
+    <form>
+      <label for="producto">Producto a importar</label>
+      <input type="text" id="producto">
+      <button type="button" id="import">Importar</button>
+    </form>
+<br>
+<div id="result"></div>
+
+<!-- jQuery -->
+<script type="text/javascript">
+ $("#import").click(function(){
+	 var prod =$("#producto").val();
+	 console.log(prod);
+   var res = "De La Habana viene un barco cargado de " + prod;
+   $("#result").html(res);
+ });
+</script>
+
+
+<!-- javascript
+<script type="text/javascript">
+
+function importar() {
+  var prod = document.getElementById('producto').value;
+  var res = document.getElementById('result');
+  res.innerHTML = "De La Habana viene un barco cargado de " + prod;
+  console.log(prod);
+};
+</script>-->
+
+  </body>
+</html>
